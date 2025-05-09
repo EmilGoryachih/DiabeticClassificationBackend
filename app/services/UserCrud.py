@@ -1,7 +1,7 @@
 from fastapi import HTTPException, status
 from sqlalchemy.ext.asyncio import AsyncSession
 from app.infrastructure.repositories.UserRepository import UserRepository
-from app.models.dbModels.User.UserEntity import UserEntity as User
+from app.models.dbModels.UserEntity import UserEntity as User
 from uuid import uuid4
 
 from app.services.authorization import AuthService

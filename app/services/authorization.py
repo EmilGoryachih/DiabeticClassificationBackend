@@ -9,7 +9,7 @@ from passlib.context import CryptContext
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.infrastructure.db.session import fastapi_get_db
-from app.models.dbModels.User.UserEntity import UserEntity
+from app.models.dbModels.UserEntity import UserEntity
 from app.models.dtoModels.TockenDTO import TokenDTO
 from app.models.dtoModels.UserDTO import UserDTO
 from app.infrastructure.repositories.UserRepository import UserRepository

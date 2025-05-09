@@ -21,7 +21,7 @@ class Settings(BaseSettings):
     DATABASE_USER: str = "emil"
     DATABASE_PASSWORD: str = "emilgan12"
     DATABASE_HOST: str = "localhost"
-    DATABASE_PORT: int = 5432
+    DATABASE_PORT: int = 5434
     DATABASE_NAME: str = "fastupdb"
     ASYNC_DATABASE_URI: PostgresDsn | None = None
 

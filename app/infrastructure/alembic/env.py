@@ -14,7 +14,6 @@ sys.path.append(str(BASE_DIR))
 
 from app.infrastructure.core import settings  # Импорт конфигурации
 from app.models.dbModels.EntityDB import metadata  # Абсолютный импорт
-from app.models.dbModels.User import UserEntity
 
 # Настройка логгирования Alembic
 config = context.config

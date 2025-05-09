@@ -1,6 +1,6 @@
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
-from app.models.dbModels.User.UserEntity import UserEntity as User
+from app.models.dbModels.UserEntity import UserEntity as User
 from app.models.dbModels.User.IUserRepository import IUserRepository
 from typing import List, Optional
 from uuid import UUID
