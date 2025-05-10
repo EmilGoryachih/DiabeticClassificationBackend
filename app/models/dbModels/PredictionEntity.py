@@ -11,7 +11,7 @@ from sqlalchemy import (
     Float,
     Boolean,
     Enum,
-    ForeignKey,
+    ForeignKey, JSON,
 )
 from sqlalchemy.orm import relationship
 
@@ -44,6 +44,9 @@ class PredictionEntity(EntityDB):
     probability = Column(Float, nullable=False)
     prediction = Column(Boolean, nullable=False)
     threshold_used = Column(Float, nullable=False)
+
+    input_json = Column(JSON)
+    explain_json = Column(JSON, nullable=True)
 
     input_age = Column(Integer, nullable=False)
     input_bmi = Column(Float, nullable=False)
@@ -83,21 +86,20 @@ class PredictionEntity(EntityDB):
         explanation_text: str | None = None,
         shap_png: str | None = None,
         created_at: datetime | None = None,
+        input_json: dict | None = None,
+        explain_json: dict | None = None,
         id: uuid.UUID | None = None,
+
     ) -> None:
-        # PK и timestamp по умолчанию
         self.id = id or uuid.uuid4()
         self.created_at = created_at or datetime.utcnow()
 
-        # FK
         self.user_id = user_id
 
-        # outputs
         self.probability = probability
         self.prediction = prediction
         self.threshold_used = threshold_used
 
-        # inputs
         self.input_age = input_age
         self.input_bmi = input_bmi
         self.input_hba1c_level = input_hba1c_level
@@ -107,9 +109,11 @@ class PredictionEntity(EntityDB):
         self.input_hypertension = input_hypertension
         self.input_heart_disease = input_heart_disease
 
-        # explanation
         self.explanation_text = explanation_text
         self.shap_png = shap_png
+
+        self.input_json = input_json or {}
+        self.explain_json = explain_json
 
     def to_dict(self) -> dict:
         return {

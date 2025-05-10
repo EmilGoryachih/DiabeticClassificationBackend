@@ -4,7 +4,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from typing import Annotated
 
 from app.infrastructure.db.session import fastapi_get_db
-from app.services.authorization import AuthService, get_current_user_service
+from app.services.AuthorizationService import AuthService, get_current_user_service
 from app.models.dtoModels.TockenDTO import TokenDTO
 from app.models.dtoModels.UserDTO import UserOutDTO
 
